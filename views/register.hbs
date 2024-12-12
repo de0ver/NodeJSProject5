@@ -1,0 +1,99 @@
+<main class="container mx-auto flex flex-wrap py-6">
+    <form class="bg-white shadow-md rounded px-8 mx-auto pt-6 pb-8" action="/register" method="POST">
+        {{#if registerError}}
+            {{#each registerError}}
+                {{#ifCond this.field 'db'}}
+                    <div class="p-4 mb-4 text-sm text-red-500 rounded-xl bg-red-50 border border-red-400 font-normal" role="alert">
+                        <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                    </div>
+                {{/ifCond}}
+            {{/each}}
+        {{/if}}
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="name">
+                Имя пользователя
+            </label>
+            <input class="
+                focus:outline-none
+                focus:shadow-outline
+                appearance-none
+                shadow border
+                rounded w-full py-2 px-3
+                mb-3
+                text-gray-700" id="name" name="name" type="text" placeholder="Введите имя" autocomplete="off">
+                {{#if registerError}}
+                    {{#each registerError}}
+                        {{#ifCond this.field 'name'}}
+                            <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                        {{/ifCond}}
+                    {{/each}}
+                {{/if}}
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="login">
+                Логин пользователя
+            </label>
+            <input class="
+                focus:outline-none
+                focus:shadow-outline
+                appearance-none
+                shadow border
+                rounded w-full py-2 px-3
+                mb-3
+                text-gray-700" id="login" name="login" type="text" placeholder="Введите логин" autocomplete="off">
+                {{#if registerError}}
+                    {{#each registerError}}
+                        {{#ifCond this.field 'login'}}
+                            <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                        {{/ifCond}}
+                    {{/each}}
+                {{/if}}
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="email">
+                Email
+            </label>
+            <input class="
+                focus:outline-none
+                focus:shadow-outline
+                appearance-none
+                shadow border
+                rounded w-full py-2 px-3
+                mb-3
+                text-gray-700" id="email" name="email" type="text" placeholder="Введите email" autocomplete="off">
+                {{#if registerError}}
+                    {{#each registerError}}
+                        {{#ifCond this.field 'email'}}
+                        <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                        {{/ifCond}}
+                    {{/each}}
+                {{/if}}
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="password">
+                Пароль
+            </label>
+            <input class="
+                focus:outline-none
+                focus:shadow-outline
+                appearance-none
+                shadow border
+                rounded w-full py-2 px-3
+                mb-3
+                text-gray-700" id="password" name="password" type="password" placeholder="Введите пароль" autocomplete="off">
+                {{#if registerError}}
+                    {{#each registerError}}
+                        {{#ifCond this.field 'password'}}
+                            <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                        {{/ifCond}}
+                    {{/each}}
+                {{/if}}
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none" type="submit">
+                Зарегистрироваться
+            </button>
+        </div>
+    </form>
+</main>

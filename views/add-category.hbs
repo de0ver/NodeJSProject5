@@ -1,0 +1,59 @@
+<main class="container mx-auto flex flex-wrap py-6">
+    <form class="bg-white shadow-md rounded px-8 mx-auto pt-6 pb-8" action="/add-category" method="POST" enctype="multipart/form-data">
+        {{#if categoryError}}
+            {{#each categoryError}}
+                {{#ifCond this.field 'db'}}
+                    <div class="p-4 mb-4 text-sm text-red-500 rounded-xl bg-red-50 border border-red-400 font-normal"
+                         role="alert">
+                        <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                    </div>
+                {{/ifCond}}
+            {{/each}}
+        {{/if}}
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="name">
+                Название категории
+            </label>
+            <input class="
+                    focus:outline-none
+                    focus:shadow-outline
+                    appearance-none
+                    shadow border
+                    rounded w-full py-2 px-3
+                    text-gray-700" id="name" name="name" type="text" placeholder="Введите название">
+            {{#if categoryError}}
+                {{#each categoryError}}
+                    {{#ifCond this.field 'name'}}
+                        <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="imgsrc">
+                Ссылка на изображение категории
+            </label>
+            <input class="
+                    focus:outline-none
+                    focus:shadow-outline
+                    appearance-none
+                    shadow border
+                    rounded w-full py-2 px-3
+                    text-gray-700" id="imgsrc" name="imgsrc" type="file" placeholder="Введите путь">
+            {{#if categoryError}}
+                {{#each categoryError}}
+                    {{#ifCond this.field 'imgsrc'}}
+                        <p class="text-red-500 text-xs italic">{{this.message}}</p>
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <div class="flex items-center justify-between">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none"
+                    type="submit">
+                Добавить
+            </button>
+        </div>
+    </form>
+</main>

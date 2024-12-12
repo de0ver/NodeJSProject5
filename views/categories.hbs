@@ -1,0 +1,31 @@
+<main class="container mx-auto flex flex-wrap py-6">
+<section class="w-full flex flex-row flex-wrap items-center px-3">
+{{#if categories.length}}
+    {{#each categories}}
+        {{#if @root.isAuth}}
+            {{#ifCond this.userId._id @root.userId}}
+                    <article class="flex flex-col shadow my-4 mx-6">
+                        <img class="hover:opacity-75" src="{{imageSrc}}" alt="{{name}}">
+                        <div class="bg-white flex flex-col justify-start p-6">
+                            <div class="bg-white flex flex-col justify-start pb-6 font-bold uppercase">
+                                {{name}}
+                            </div>
+                            <a class="text-center py-3 rounded-[8px] bg-sky-500 uppercase text-white hover:text-black"
+                               href="/category/edit/{{id}}">Редактировать категорию</a>
+                        </div>
+                    </article>
+            {{/ifCond}}
+        {{else}}
+                <article class="flex flex-col shadow my-4 mx-6">
+                    <img class="hover:opacity-75" src="{{imageSrc}}" alt="{{name}}">
+                    <div class="bg-white flex flex-col justify-start p-6 font-bold uppercase">
+                        {{name}}
+                    </div>
+                </article>
+        {{/if}}
+    {{/each}}
+    </section>
+    </main>
+{{else}}
+    <p>Категорий пока нет</p>
+{{/if}}

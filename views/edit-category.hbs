@@ -1,0 +1,44 @@
+<main class="container mx-auto flex flex-wrap py-6">
+    <form class="bg-white shadow-md rounded px-8 mx-auto pt-6 pb-8" action="/category/edit" method="POST"
+        enctype="multipart/form-data">
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="name">
+                Название категории
+            </label>
+            <input class="
+                    focus:outline-none
+                    focus:shadow-outline
+                    appearance-none
+                    shadow border
+                    rounded w-full py-2 px-3
+                    text-gray-700" id="name" name="name" type="text" placeholder="Введите название"
+                value="{{category.name}}">
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-800 text-sm font-bold mb-2" for="imgsrc">
+                Ссылка на изображение категории
+            </label>
+            <input class="
+                    focus:outline-none
+                    focus:shadow-outline
+                    appearance-none
+                    shadow border
+                    rounded w-full py-2 px-3
+                    text-gray-700" id="imgsrc" name="imgsrc" type="file">
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrf}}">
+        <input type="hidden" name="id" value="{{category.id}}">
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-blue-500 hover:bg-blue-700
+                text-white font-bold py-2 px-4 rounded
+                w-full focus:outline-none" type="submit">
+                Обновить
+            </button>
+        </div>
+        <a class="grid justify-items-center
+        mt-3 bg-blue-500 hover:bg-blue-700 text-white
+        font-bold py-2 px-4 rounded w-full focus:outline-none" href="/category/remove/{{category.id}}">
+        Удалить категорию</a>
+    </form>
+</main>

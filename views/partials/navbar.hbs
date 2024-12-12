@@ -1,0 +1,37 @@
+<nav class="w-full bg-blue-800 py-4 shadow">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+        <nav>
+            <ul class="flex items-center font-bold text-sm text-white uppercase no-underline justify-between">
+                {{#if isHome}}
+                    <li class="rounded bg-sky-500"><a class="hover:text-gray-200 hover:underline px-4"href="/">Главная</a></li>
+                {{else}}
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/">Главная</a></li>
+                {{/if}}
+                {{#if isRegister}}
+                    <li class="rounded bg-sky-500"><a class="hover:text-gray-200 hover:underline px-4" href="/register">Регистрация</a></li>
+                {{else}}
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/register">Регистрация</a></li>
+                {{/if}}
+                {{#if isCategories}}
+                    <li class="rounded bg-sky-500"><a class="hover:text-gray-200 hover:underline px-4" href="/category">Категории</a></li>
+                {{else}}
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/category">Категории</a></li>
+                {{/if}}
+                {{#if isAuth}}
+                    {{#if isAddCategory}}
+                        <li class="rounded bg-sky-500"><a class="hover:text-gray-200 hover:underline px-4" href="/add-category">Добавить категорию</a></li>
+                    {{else}}
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="/add-category">Добавить категорию</a></li>
+                    {{/if}}
+                    <li><a class="hover:text-gray-200 hover:underline px-4" href="/logout">Выйти</a></li>
+                {{else}}
+                    {{#if isLogin}}
+                        <li class="rounded bg-sky-500"><a class="hover:text-gray-200 hover:underline px-4" href="/login">Авторизация</a></li>
+                    {{else}}
+                        <li><a class="hover:text-gray-200 hover:underline px-4" href="/login">Авторизация</a></li>
+                    {{/if}}
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</nav>
